@@ -30,7 +30,14 @@ except Exception as e:
     print(f"Warning: Could not embed logo: {e}")
 
 # Render the HTML
-st.html(html_content)
+# 1. Codificamos tu HTML completo en base64 para que Streamlit no lo bloquee
+    html_b64 = base64.b64encode(html_content.encode('utf-8')).decode('utf-8')
+
+    # 2. Forzamos un iframe puro usando markdown, replicando la función antigua
+    iframe_code = f'<iframe src="data:text/html;base64,{html_b64}" width="100%" height="1080" style="border:none;"></iframe>'
+    
+    # 3. Lo renderizamos
+    st.markdown(iframe_code, unsafe_allow_html=True)
 
 # Hide Streamlit elements to maximize immersion
 hide_streamlit_style = """
