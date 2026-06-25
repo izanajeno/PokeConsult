@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import os
 import base64
 
@@ -31,7 +30,7 @@ except Exception as e:
     print(f"Warning: Could not embed logo: {e}")
 
 # Render the HTML
-components.html(html_content, height=1000, scrolling=True)
+st.html(html_content)
 
 # Hide Streamlit elements to maximize immersion
 hide_streamlit_style = """
