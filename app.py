@@ -30,7 +30,7 @@ except Exception as e:
     print(f"Warning: Could not embed logo: {e}")
 
 # Render the HTML
-st.iframe(html_content, height=1080, scrolling=True)
+st.html(html_content)
 
 # Hide Streamlit elements to maximize immersion
 hide_streamlit_style = """
